@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Abstract}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Decentralization and Trust}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Threshold Signature Schemes}{2}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Shamir's Secret Sharing and Lagrange}{2}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Overview of TSS}{2}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}BLS Scheme}{3}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}FROST Protocol}{4}{subsubsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.4}Use Cases, Scalability \& Security Improvements}{4}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Risks, Challenges \& Limitations}{5}{subsection.1.5}%
+\contentsline {section}{\numberline {A}Appendix}{6}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Shamir}{6}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}BLS Definitions}{6}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Schnorr Algorithm}{7}{subsection.A.3}%
