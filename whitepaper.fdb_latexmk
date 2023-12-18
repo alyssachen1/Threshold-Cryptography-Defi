@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1702876970 "/Users/alyssachen/Downloads/Whitepaper/whitepaper.tex" "whitepaper.pdf" "whitepaper" 1702876971 0
-  "/Users/alyssachen/Downloads/Whitepaper/whitepaper.tex" 1702876969 18287 8ea40e7becf456de69ad288377685474 ""
+["pdflatex"] 1702890829 "/Users/alyssachen/Downloads/Whitepaper/whitepaper.tex" "whitepaper.pdf" "whitepaper" 1702890830 0
+  "/Users/alyssachen/Downloads/Whitepaper/whitepaper.tex" 1702890829 18246 f41321c672d92ca61490072fbd6ee447 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -171,10 +171,10 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1697080226 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1697080190 7883462 a23569a1db7e7ea53b2e854ce072a0f5 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "whitepaper.aux" 1702876971 2559 adfcbde33178bd25a15bf6877406e757 "pdflatex"
-  "whitepaper.out" 1702876971 2246 b1680da807e3d55db98e3618071165f2 "pdflatex"
-  "whitepaper.tex" 1702876969 18287 8ea40e7becf456de69ad288377685474 ""
-  "whitepaper.toc" 1702876971 1218 2912df205c24eec9e9c4d2ad80ee193c "pdflatex"
+  "whitepaper.aux" 1702890830 2559 adfcbde33178bd25a15bf6877406e757 "pdflatex"
+  "whitepaper.out" 1702890830 2246 b1680da807e3d55db98e3618071165f2 "pdflatex"
+  "whitepaper.tex" 1702890829 18246 f41321c672d92ca61490072fbd6ee447 ""
+  "whitepaper.toc" 1702890830 1218 2912df205c24eec9e9c4d2ad80ee193c "pdflatex"
   (generated)
   "whitepaper.aux"
   "whitepaper.log"

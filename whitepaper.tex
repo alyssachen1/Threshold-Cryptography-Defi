@@ -167,13 +167,13 @@ Verification Phase:
     \begin{enumerate}
         \item Signer \( (x, Y)\) \( \leftarrow\) KeyGen()
         \item Verifier asks to sign message in respect to their public key \( (m, Y)\)
-        \item Generate nonce \( k \leftarrow \mathbb{Z}_q \), [also add in the money symbol] public commitment \(R = g^k \in \mathbb{G}\), challenge \(c =H(R, Y, m)\) where H is a hash function, and response \(z =k+c \cdot x\).
+        \item Generate nonce \( k \leftarrow \mathbb{Z}_q \), public commitment \(R = g^k \in \mathbb{G}\), challenge \(c =H(R, Y, m)\) where H is a hash function, and response \(z =k+c \cdot x\).
     \end{enumerate}
     \item Signature tuple \( (m, \sigma = (R, z))\)
     \item To verify signature:
     \begin{enumerate}
         \item Verifier rederives challenge from computing \(c= H( R, Y, m)\).
-        \item Using the public key, response, and challenge compute \( R'= g^z \cdot Y^-c\) [Fix this]
+        \item Using the public key, response, and challenge compute \( R'= g^z \cdot Y^-c\) 
         \item Output \( R =^? R'\)
     \end{enumerate}
 \end{itemize}
