@@ -50,12 +50,12 @@ The essence of DeFi lies in its decentralized nature, where traditional banking 
 
 \subsection{Threshold Signature Schemes}
 \subsubsection{Shamir's Secret Sharing and Lagrange}
-To intuitively go over threshold schemes, it is important to discuss the underlying ideas behind Shamir's scheme. Suppose you are a parent that doesn't want your kids to snack whenever they want, and wish to devise a scheme in which at least \(n-1\) out of \(n\) kids who want snacks are needed to unlock the snack cabinet. Then, we can say the reconstruction threshold is \(k=n\), and construct a degree \(k-1\) polynomial \(P(x)\), with \(P(0)=code\) and distribute shares \(P(i)\) to each child. When the required threshold of at least \(n-1\) children come together, they can reconstruct the code for the lock and get their snacks!~\ref{subsec:shamir}
+To intuitively go over threshold schemes, it is important to discuss the underlying ideas behind Shamir's scheme. Suppose you are a parent that doesn't want your kids to snack whenever they want, and wish to devise a scheme in which at least \(n-1\) out of \(n\) kids who want snacks are needed to unlock the snack cabinet. Then, we can say the reconstruction threshold is \(k=n\), and construct a degree \(k-1\) polynomial \(P(x)\), with \(P(0)=code\) and distribute shares \(P(i)\) to each child. When the required threshold of at least \(n-1\) children come together, they can reconstruct the code for the lock and retrieve their snacks!~\ref{subsec:shamir}
 
 \subsubsection{Overview of TSS}
 Threshold signature schemes (TSS) divide a private key among multiple parties, ensuring that no single party has access to the entire key. To produce a valid signature, a minimum number of these parties (the threshold) must collaborate. TSS provides an added layer of security as compromising a system would require breaching multiple parties, making attacks more difficult.
 
-In distributed ledger technology (DLT) platforms, digital signatures play a critical role as they enable the identification and authentication of the parties involved in the network. A digital signature scheme consists of the private and public key, where the private key belongs to the owner and is used to sign data, and the public key is used by other parties in the network to validate the signatures of the private key holder. 
+In distributed ledger technology (DLT) platforms, digital signatures play a critical role in enabling the identification and authentication of the parties involved in the network. A digital signature scheme consists of the private and public key, where the private key belongs to the owner and is used to sign data, and the public key is used by other parties in the network to validate the signatures of the private key holder. 
 
 Since the management of the private key is integral to the validity of the DLT platform, entrusting this responsibility to a single party creates a potential single point of failure that could compromise the system. However, there is a way to thwart this single point of failure by implementing threshold signature schemes, which is a branch of secure multiparty computation to reveal the private key when a subset of parties come together and combine their shares. This cryptographic technnique relies on the idea that multiple parties collaboratively compute a function over their inputs while keeping those inputs private from each other. For example, if Alice and Bob wanted to know who is richer without revealing their individual weaths, MPC would take in their salaries as the private inputs, and output the name of the person with more wealth. This is done so in a manner that keeps the input's of each part secret, allowing individuals who don't necessarily trust each other to perform operations without revealing sensitive information.
 
@@ -70,7 +70,7 @@ Typically, the threshold scheme consists of the key generation stage followed by
 
 \subsubsection{BLS Scheme}
 
-The Boneh Lynn Shacham (BLS) scheme is not inherently a threshold scheme, but is commonly used as an underlying infrastructure to contruct one. More details on the underlying mathematical implementation in~\ref{subsec:bls-definitions}.\ This section covers a conceptual, high level understanding of the BLS scheme.
+The Boneh Lynn Shacham (BLS) scheme is not inherently a threshold scheme, but is commonly used as an underlying infrastructure to contruct one. More on the underlying mathematical implementation can be found in~\ref{subsec:bls-definitions}.\ This section covers a conceptual, high level understanding of the BLS scheme.
 
 Aggregation: A special property the BLS scheme grants is the ability to condense multiple signatures into one, making it possible for increased efficiencies in storage, computational costs, and many more. For example, for \(m\) distinct signers and \(n\) signatures, the signatures can be aggregated by setting \( \sum \) = \( \sum_i \)\( \sigma_i \). Alice will then broadcast \( \sigma_i \) and aggregate the partial signatures (after recieving t+1 shares of the partial signatures) to generate the threshold signature, \( \sigma = \sum_{j \in S} \lambda_j \cdot \sigma_j \).
 
@@ -83,7 +83,7 @@ Signatures produced by the FROST method and Schnorr signatures are indistinguish
 
 On a high level, FROST consists of either (1) a two round signing protocol or (2) a single round protocol with preprocessing [prob explain this more], and unlike similar schemes, signing operations achieve more security from concurrently performed actions. FROST can be implemented with a Distributed Key Generation (DKG) Protocol, an \(n\)-wise Shamir Secret Sharing protocol in which each participant takes the role of a dealer. The protocol also favors efficiency by allowing honest participants to rerun the protocol after identifying and excluding the misbehaving participant. 
 
-The authors of the original FROST whitepaper instantiates the protocol using an optionally implemented signature aggregator role \( (\mathcal{SA})\), delegated to report dishonest parties and publish the signature-- allowing for optimized communication overhead and increased practicality. Additionally, even if up to \(t-1\) participants, including the \( \mathcal{SA}\) are misbehaving, the infrastructure of FROST guarantees that without the approval of at least one honest party, the signature cannot be published and verified. For details on the more specific implementation of the protocol, refer to section~\ref{subsec:schnorr}.
+The authors of the original FROST whitepaper instantiates the protocol using an optionally implemented signature aggregator role \( (\mathcal{SA})\), delegated to report dishonest parties and publish the signature-- allowing for optimized communication overhead and increased practicality. Additionally, even if up to \(t-1\) participants, including the \( \mathcal{SA}\) are misbehaving, the infrastructure of FROST guarantees that without the approval of at least one honest party, the signature cannot be published and verified. For more on the specific implementations of the protocol, refer to section~\ref{subsec:schnorr}.
 
 \subsection{Use Cases, Scalability \& Security Improvements}
 
@@ -93,7 +93,7 @@ Schnorr signatures (which are used in the FROST protocol) allow for an anonymity
 
 In addition to the active security measures present in the underlying structure of threshold schemes, there are additional mechanisms that can be implemented in order to achieve proactive security. A secret is distributed amongst \(n\) members, and \(t+1\) shares are needed to uncover the secret, so a successful attacker must breach at least \(t+1\) shares. If we implement a key refreshing mechanism and refresh secret shares after a certain period, assuming an attacker successfully breaches a percentage of shares in one period, and breaches the remaining in the next, they are unable to uncover the secret. This has an especially interesting use case in multisignature (multisig) wallets. 
 
-If we update the shares of a multisig wallet periodically, this introduces a moving target for attackers. Even if they compromise a fraction of the shares within one time frame, the refresh process would invalidate these efforts in the next period. This method not only increases the complexity of a successful attack but also provides a window of opportunity for detecting and responding to breaches before the secret/access to the wallet can be reconstructed. In practice, this is more suitable for maintaining continuous security and ongoing trust among participants in the system.
+Updating the shares of a multisig wallet periodically introduces a moving target for attackers. Even if they compromise a fraction of the shares within one time frame, the refresh process would invalidate these efforts in the next period. This method not only increases the complexity of a successful attack but also provides a window of opportunity for detecting and responding to breaches before the secret/access to the wallet can be reconstructed. In practice, this is more suitable for maintaining continuous security and ongoing trust among participants in the system.
 
 This security approach can be particularly effective in environments where the threat landscape is dynamic and the value of the protected asset (like cryptocurrency in a multisig wallet) is high, and the appliations of this approach is infinitely dynamic-- the multisig wallet is just one of many use cases.
 
@@ -167,14 +167,14 @@ Verification Phase:
     \begin{enumerate}
         \item Signer \( (x, Y)\) \( \leftarrow\) KeyGen()
         \item Verifier asks to sign message in respect to their public key \( (m, Y)\)
-        \item Generate nonce \( k \leftarrow \mathbb{Z}_q \), public commitment \(R = g^k \in \mathbb{G}\), challenge \(c =H(R, Y, m)\) where H is a hash function, and response \(z =k+c \cdot x\).
+        \item Generate nonce \( k \leftarrow \mathbb{Z}_q \), public commitment \(R = g^k \in \mathbb{G}\), challenge \(c =H(R, Y, m)\) where \(H\) is a hash function, and response \(z =k+c \cdot x\).
     \end{enumerate}
     \item Signature tuple \( (m, \sigma = (R, z))\)
     \item To verify signature:
     \begin{enumerate}
         \item Verifier rederives challenge from computing \(c= H( R, Y, m)\).
-        \item Using the public key, response, and challenge compute \( R'= g^z \cdot Y^-c\) 
-        \item Output \( R =^? R'\)
+        \item Using the public key, response, and challenge compute \( R'= g^z \cdot Y^{-c}\)
+        \item Output of \( R \stackrel{?}{=} R'\)-- 1 if success, 0 otherwise.
     \end{enumerate}
 \end{itemize}
 
